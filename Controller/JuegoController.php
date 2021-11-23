@@ -44,14 +44,16 @@ class JuegoController {
 
     function agregarJuego(){
         $this->authHelper->checkLoggedIn();
-        if(($_FILES["img"]["type"]=="image/png") || ($_FILES["img"]["type"]=="image/jpg")){
+        if(($_FILES["img"]["type"]=="image/png") || ($_FILES["img"]["type"]=="image/jpg") && isset($_SESSION['isAdmin'])){
             $img=$_FILES["img"];
             $origen=$img["tmp_name"];
             $destino="public/".uniqid().$img["name"];
             copy($origen,$destino);
             $this->juegomodel->addJuego($_POST['genero'],$_POST['nombre'],$_POST['descripcion'],$_POST['calificacion'],$destino,$_POST['precio']);   
-            $this->juegoview->showJuegoLocation();
-        
+            $this->juegoview->showJuegoLocation();     
+    }else{
+        $this->juegomodel->addJuego($_POST['genero'],$_POST['nombre'],$_POST['descripcion'],$_POST['calificacion'],null,$_POST['precio']);   
+        $this->juegoview->showJuegoLocation();    
     }
    
     }

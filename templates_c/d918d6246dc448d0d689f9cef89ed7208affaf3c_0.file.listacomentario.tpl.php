@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-23 02:21:27
+/* Smarty version 3.1.39, created on 2021-11-23 23:23:58
   from 'C:\xampp\htdocs\TPE WEB 2\templates\Vue\listacomentario.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_619c4217f3ed43_88852204',
+  'unifunc' => 'content_619d69fe034091_96357122',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd918d6246dc448d0d689f9cef89ed7208affaf3c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPE WEB 2\\templates\\Vue\\listacomentario.tpl',
-      1 => 1637630487,
+      1 => 1637706236,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_619c4217f3ed43_88852204 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619d69fe034091_96357122 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div>
     <h1>Comentarios</h1>
 </div>
@@ -29,7 +29,22 @@ function content_619c4217f3ed43_88852204 (Smarty_Internal_Template $_smarty_tpl)
 <input type="hidden" name=juego value="<?php echo $_smarty_tpl->tpl_vars['detalles']->value->id_juego;?>
 ">
 
+
 <section id="app">
+    <div>
+        <form id="orderForm">
+            <select name="atributo" required class="box">
+                <option value="fecha">Fecha</option>
+                <option value="puntaje">Puntaje</option>
+            </select>
+            <select name="criterio" required class="box">
+                <option value="asc">Ascendente</option>
+                <option value="desc">Descendente</option>
+            </select>
+            <input v-on:click="orderBy" type="submit">
+        </form>
+    </div>
+
      <div class="container" v-for="comentario in comentarios">
         <div>
             
@@ -40,6 +55,10 @@ function content_619c4217f3ed43_88852204 (Smarty_Internal_Template $_smarty_tpl)
             <h3>Comentario</h3>
             <div>
                 <p>{{comentario.texto}}</p>
+            </div>
+            <h3>Fecha</h3>
+            <div>
+                <p>{{comentario.fecha}}</p>
             </div>
          <button id="btn-borrar" v-if="admin"  v-on:click="eliminarComentario(comentario.id)">Borrar</button>
         </div>

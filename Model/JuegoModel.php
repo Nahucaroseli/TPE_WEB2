@@ -14,6 +14,7 @@ class JuegoModel {
         $juegos = $query->fetchAll(PDO::FETCH_OBJ);
         return $juegos;
     }
+
     
     function getJuego($id){
         $query = $this->db->prepare("SELECT * FROM juego WHERE id_juego=?");

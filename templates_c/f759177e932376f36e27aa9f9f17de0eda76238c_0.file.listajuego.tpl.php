@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-23 02:15:54
+/* Smarty version 3.1.39, created on 2021-11-23 21:36:45
   from 'C:\xampp\htdocs\TPE WEB 2\templates\listajuego.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_619c40caee1182_30542407',
+  'unifunc' => 'content_619d50ddc93da1_05042328',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f759177e932376f36e27aa9f9f17de0eda76238c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPE WEB 2\\templates\\listajuego.tpl',
-      1 => 1637630151,
+      1 => 1637699804,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_619c40caee1182_30542407 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619d50ddc93da1_05042328 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 if ($_smarty_tpl->tpl_vars['verificar']->value == true) {?>
     <?php $_smarty_tpl->_subTemplateRender("file:templates/logoutButton.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
@@ -90,9 +90,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <div>
             <input type="text" name="precio" id="precio" placeholder="Precio" required>
         </div>
+        <?php if ((isset($_SESSION['isAdmin'])) && $_SESSION['isAdmin']) {?>
         <div>
-            <input type="file" name="img" id="img" placeholder="IMG" required>
+            <input type="file" name="img" id="img" placeholder="IMG">
         </div>
+        <?php }?>
         <button type="submit">Enviar</button>
     </form>
 </section>

@@ -26,8 +26,15 @@ class ComentarioApiController{
 
 
     function obtenerComentariosbyJuego($params = null){
+        if(isset($_GET["sort"]) && isset($_GET["order"])){
+            $atributo = $_GET["sort"];
+            $criterio = $_GET["order"];
+        } else {
+            $atributo = "fecha";
+            $criterio = "desc";
+        }
         $id = $params[':ID'];
-        $comentarios = $this->model->getComentariosbyJuego($id);
+        $comentarios = $this->model->getComentariosbyJuego($id,$atributo,$criterio);
         if($comentarios){
             return $this->view->response($comentarios,200);
         }else{
@@ -54,12 +61,17 @@ class ComentarioApiController{
 
     function agregarComentario(){
         $this->authHelper->checkLoggedIn();
+
         $body = $this->getData();
-        $id=$this->model->insertComentario($body->texto,$body->puntaje,$body->id_juego);
+        $fecha = date("Y-m-d H:i:s");
+        $id=$this->model->insertComentario($body->texto,$fecha,$body->puntaje,$body->id_juego);
         if($id != 0){
             return $this->view->response("Se inserto el comentario",200);
         }else{
             return $this->view->response("Error al insertar el comentario",404);
         }
     }
+
+
+
 }

@@ -8,7 +8,6 @@ function start(){
     let id_juego = document.querySelector("input[name=juego]").value;
     document.querySelector("#btn-borrar").addEventListener("click",eliminarComentario);
     document.querySelector("#formComentario").addEventListener("submit",añadirComentario);
-
     let app = new Vue({
         el: "#app",
         data: {
@@ -17,14 +16,26 @@ function start(){
             admin:false
         },
         methods:{
-            eliminarComentario:eliminarComentario
-        
+            eliminarComentario:eliminarComentario,
+            orderBy: async function (event) {
+                event.preventDefault();
+                let formData = new FormData(orderForm);
+                let atributo = formData.get("atributo");
+                let criterio = formData.get("criterio");
+                try {
+                  let response = await fetch(API + "/" +id_juego+ "?sort=" + `${atributo}` + "&order=" + `${criterio}`);
+                  let comentarios = await response.json();
+                  app.comentarios = comentarios;
+                } catch (e) {
+                  console.log(e);
+            }
         }
+    }
+          
     })
 
     getComentariosJuego(id_juego);
-
-
+ 
     async function getComentariosJuego(id_juego){
         try{
             let response = await fetch(API+"/"+id_juego);
@@ -43,7 +54,8 @@ function start(){
         let data = {
             texto : document.querySelector("textarea[name=Texto").value,
             puntaje : document.querySelector("input[name=puntaje]").value,
-            id_juego : document.querySelector("input[name=juego]").value
+            id_juego : document.querySelector("input[name=juego]").value,
+            fecha : null
         }
         try{
             await fetch(API,{

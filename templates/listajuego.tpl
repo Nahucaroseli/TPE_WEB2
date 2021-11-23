@@ -41,9 +41,11 @@
         <div>
             <input type="text" name="precio" id="precio" placeholder="Precio" required>
         </div>
+        {if isset($smarty.session.isAdmin) && $smarty.session.isAdmin}
         <div>
-            <input type="file" name="img" id="img" placeholder="IMG" required>
+            <input type="file" name="img" id="img" placeholder="IMG">
         </div>
+        {/if}
         <button type="submit">Enviar</button>
     </form>
 </section>
