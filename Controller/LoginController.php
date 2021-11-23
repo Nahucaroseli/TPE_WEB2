@@ -28,25 +28,41 @@ class LoginController{
             $this->usermodel->addUser($userEmail,$userPassword);
         }
         $this->loginview->showLoginLocation();
+        
+       
     }
     function verifyLogin(){
         
-        if(!empty($_POST['email']) && !empty($_POST['password'])){
+        if(!empty($_POST['email']) && !empty($_POST['password']))
+        {
             $userEmail = $_POST['email'];
             $userPassword = $_POST['password'];
 
             $user = $this->usermodel->getUser($userEmail);
             
-            if($user && password_verify($userPassword, $user->password)){
+            
+            if($user && password_verify($userPassword, $user->password) && $user->isAdmin == 1)
+            {
+                    session_start();
+                    $_SESSION['logged'] = true;
+                    $_SESSION['email'] = $userEmail;
+                    $_SESSION['isAdmin'] = true;
+                    $this->loginview->showJuegos();
+            }
+            else if($user && password_verify($userPassword, $user->password))
+            {
                 session_start();
                 $_SESSION['logged'] = true;
                 $_SESSION['email'] = $userEmail;
+                $_SESSION['isAdmin'] = false;
                 $this->loginview->showJuegos();
-            }else{
+            }
+            else
+            {
                 $this->loginview->showLogin("Acceso denegado!");
             }
 
-    }
+        }
     }
 
     function Logout(){

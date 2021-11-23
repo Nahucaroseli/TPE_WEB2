@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-10 01:56:58
+/* Smarty version 3.1.39, created on 2021-11-23 02:16:14
   from 'C:\xampp\htdocs\TPE WEB 2\templates\FormEditJuego.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_61622c4a83b965_89581645',
+  'unifunc' => 'content_619c40de0ac385_20004106',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2c01605275b08e0f1433fdd805d79711fc3d61cc' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPE WEB 2\\templates\\FormEditJuego.tpl',
-      1 => 1633823799,
+      1 => 1635979075,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_61622c4a83b965_89581645 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619c40de0ac385_20004106 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:templates/nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>

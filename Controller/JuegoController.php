@@ -1,7 +1,7 @@
 <?php
 require_once "./Model/JuegoModel.php";
 require_once "./View/JuegoView.php";
-require_once "./Helpers/AuthHelper.php";
+require_once "Helpers/AuthHelper.php";
 require_once "Model/GeneroModel.php";
 class JuegoController {
 
@@ -29,17 +29,31 @@ class JuegoController {
         $this->juegoview->mostrarJuegos($juegos,$verificar,$generos);
     }
     function getJuegobyId($id){
+        session_start();
         $juego = $this->juegomodel->getJuego($id);
-        $this->juegoview->mostrarJuegoporid($juego);
+        if(isset($_SESSION['isAdmin'])){
+            $user = $_SESSION['isAdmin'];
+            $this->juegoview->mostrarJuegoporid($juego,$user);
+        }else{
+            $this->juegoview->mostrarJuegoporid($juego,null);
+        }
+       
+    
+      
     }
 
     function agregarJuego(){
         $this->authHelper->checkLoggedIn();
-        if(!empty($_POST['nombre'])){
-            $this->juegomodel->addJuego($_POST['genero'],$_POST['nombre'],$_POST['descripcion'],$_POST['calificacion'],$_POST['precio']);
+        if(($_FILES["img"]["type"]=="image/png") || ($_FILES["img"]["type"]=="image/jpg")){
+            $img=$_FILES["img"];
+            $origen=$img["tmp_name"];
+            $destino="public/".uniqid().$img["name"];
+            copy($origen,$destino);
+            $this->juegomodel->addJuego($_POST['genero'],$_POST['nombre'],$_POST['descripcion'],$_POST['calificacion'],$destino,$_POST['precio']);   
             $this->juegoview->showJuegoLocation();
-        }
         
+    }
+   
     }
     function eliminarJuego($id){
         $this->authHelper->checkLoggedIn();

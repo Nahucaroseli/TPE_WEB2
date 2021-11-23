@@ -22,7 +22,7 @@
     
 {if $verificar == true }
 <section class="form">
-    <form action="addJuego" method="POST" class="box">
+    <form action="addJuego" method="POST" class="box" enctype="multipart/form-data">
         <h1>Añadir Juego</h1>
         <select name="genero" id="genero">
             {foreach from=$generos item=$genero}
@@ -30,16 +30,19 @@
             {/foreach}
         </select>
         <div>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
         </div>
         <div>
-            <textarea type="text" name="descripcion" id="descripcion" placeholder="Descripcion"></textarea>
+            <textarea type="text" name="descripcion" id="descripcion" placeholder="Descripcion" required></textarea>
         </div>
         <div>
-            <input type="text" name="calificacion" id="calificacion" placeholder="Calificacion">
+            <input type="text" name="calificacion" id="calificacion" placeholder="Calificacion" required>
         </div>
         <div>
-            <input type="text" name="precio" id="precio" placeholder="Precio">
+            <input type="text" name="precio" id="precio" placeholder="Precio" required>
+        </div>
+        <div>
+            <input type="file" name="img" id="img" placeholder="IMG" required>
         </div>
         <button type="submit">Enviar</button>
     </form>

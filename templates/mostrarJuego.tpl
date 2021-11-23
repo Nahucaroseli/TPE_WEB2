@@ -16,8 +16,18 @@
     <li>
         <strong>Precio:</strong>: {$detalles->precio}
    </li>
+   <li>
+       <img src="{$detalles->img}" alt="imagen">
+    </li>
     {/foreach}
 </ul>
+
+{include "templates/Vue/listacomentario.tpl"}
+
+{include "templates/addComentario.tpl"}
+
+<script src="js/main.js"></script>
+
 <a href="Juego">Volver</a>
 
 {include "templates/footer.tpl"}

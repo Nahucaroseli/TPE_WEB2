@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-10-14 04:20:45
+/* Smarty version 3.1.39, created on 2021-11-23 02:15:54
   from 'C:\xampp\htdocs\TPE WEB 2\templates\listajuego.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_616793fd422581_49494422',
+  'unifunc' => 'content_619c40caee1182_30542407',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f759177e932376f36e27aa9f9f17de0eda76238c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPE WEB 2\\templates\\listajuego.tpl',
-      1 => 1634176848,
+      1 => 1637630151,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_616793fd422581_49494422 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619c40caee1182_30542407 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 if ($_smarty_tpl->tpl_vars['verificar']->value == true) {?>
     <?php $_smarty_tpl->_subTemplateRender("file:templates/logoutButton.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
@@ -62,7 +62,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
     
 <?php if ($_smarty_tpl->tpl_vars['verificar']->value == true) {?>
 <section class="form">
-    <form action="addJuego" method="POST" class="box">
+    <form action="addJuego" method="POST" class="box" enctype="multipart/form-data">
         <h1>Añadir Juego</h1>
         <select name="genero" id="genero">
             <?php
@@ -79,16 +79,19 @@ $_smarty_tpl->tpl_vars['genero']->do_else = false;
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </select>
         <div>
-            <input type="text" name="nombre" id="nombre" placeholder="Nombre">
+            <input type="text" name="nombre" id="nombre" placeholder="Nombre" required>
         </div>
         <div>
-            <textarea type="text" name="descripcion" id="descripcion" placeholder="Descripcion"></textarea>
+            <textarea type="text" name="descripcion" id="descripcion" placeholder="Descripcion" required></textarea>
         </div>
         <div>
-            <input type="text" name="calificacion" id="calificacion" placeholder="Calificacion">
+            <input type="text" name="calificacion" id="calificacion" placeholder="Calificacion" required>
         </div>
         <div>
-            <input type="text" name="precio" id="precio" placeholder="Precio">
+            <input type="text" name="precio" id="precio" placeholder="Precio" required>
+        </div>
+        <div>
+            <input type="file" name="img" id="img" placeholder="IMG" required>
         </div>
         <button type="submit">Enviar</button>
     </form>

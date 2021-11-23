@@ -19,8 +19,9 @@ class JuegoView{
         $this->smarty->display('templates/listajuego.tpl');
     }
 
-    function mostrarJuegoporid($juego){
+    function mostrarJuegoporid($juego,$user){
         $this->smarty->assign('juego', $juego);
+        $this->smarty->assign('user', $user);
         $this->smarty->display('templates/mostrarJuego.tpl');
     }
     

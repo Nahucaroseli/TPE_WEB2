@@ -2,6 +2,7 @@
 require_once "Controller/JuegoController.php";
 require_once "Controller/GeneroController.php";
 require_once "Controller/LoginController.php";
+require_once "Controller/AdminController.php";
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -15,9 +16,19 @@ if (!empty($_GET['action'])) {
 $juegoController = new JuegoController();
 $generoController = new GeneroController();
 $loginController = new LoginController();
+$adminController = new AdminController();
 $params = explode("/", $action);
 
 switch($params[0]){
+    case 'borrarUsuario':
+        $adminController->borrarUsuario($params[1]);
+        break;
+    case 'editarPermiso':
+        $adminController->editarPermiso($params[1]);
+        break;
+    case 'Usuario':
+        $adminController->obtenerUsuarios();
+        break;
     case 'logout':
         $loginController->Logout();
         break;
@@ -70,7 +81,7 @@ switch($params[0]){
         $juegoController->getJuegos();
         break;
     default:
-        echo("404 Not Found");
+        echo("404 Error Not Found");
         break;
 }
 

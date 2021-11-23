@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <base href="{BASE_URL}">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <title>ConsultasJuegos.com</title>
 
@@ -17,5 +18,4 @@
         <div>
             <h1 class="titulo">ConsultasJuegos.com</h1>
         </div>
-
     </header>

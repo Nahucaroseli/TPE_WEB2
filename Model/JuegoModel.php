@@ -23,9 +23,9 @@ class JuegoModel {
     }
 
     
-    function addJuego($id_genero,$nombre,$descripcion,$calificacion,$precio){
-        $query = $this->db->prepare("INSERT INTO juego(id_genero,nombre,descripcion,calificacion,precio) VALUES(?,?,?,?,?)");
-        $query->execute(array($id_genero,$nombre,$descripcion,$calificacion,$precio));
+    function addJuego($id_genero,$nombre,$descripcion,$calificacion,$destino,$precio){
+        $query = $this->db->prepare("INSERT INTO juego(id_genero,nombre,descripcion,calificacion,img,precio) VALUES(?,?,?,?,?,?)");
+        $query->execute(array($id_genero,$nombre,$descripcion,$calificacion,$destino,$precio));
     }
     function deleteJuego($id){
         var_dump($id);
