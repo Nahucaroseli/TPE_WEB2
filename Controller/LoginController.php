@@ -1,6 +1,7 @@
 <?php
 require_once "Model/UserModel.php";
 require_once "View/LoginView.php";
+require_once "Helpers/AuthHelper.php";
 
 class LoginController{
 
@@ -26,8 +27,9 @@ class LoginController{
             $userPassword = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
             $this->usermodel->addUser($userEmail,$userPassword);
+            $this->verifyLogin();
         }
-        $this->loginview->showLoginLocation();
+        $this->loginview->showJuegos();
         
        
     }

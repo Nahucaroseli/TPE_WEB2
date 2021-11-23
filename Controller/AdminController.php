@@ -20,7 +20,6 @@ class AdminController{
     function obtenerUsuarios(){
        
         $this->authHelper->isAdmin();
-        
         $usuarios = $this->model->getAllUsers();
         $this->view->mostrarUsuarios($usuarios);
     }

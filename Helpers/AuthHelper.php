@@ -19,6 +19,8 @@ class AuthHelper{
         session_destroy();
     }
 
+
+
     function isAdmin(){
         session_start();
         if(!isset($_SESSION['isAdmin'])){

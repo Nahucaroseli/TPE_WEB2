@@ -14,3 +14,5 @@
         <button type="submit">Registrarse</button>
     </form>
 </section>
+
+{include "templates/footer.tpl"}
