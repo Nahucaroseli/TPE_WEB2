@@ -24,7 +24,7 @@ class JuegoController {
         session_start();
         if(isset($_SESSION['logged'])){
           
-            $verificar = $_SESSION['logged'];
+        $verificar = $_SESSION['logged'];
         }
         $this->juegoview->mostrarJuegos($juegos,$verificar,$generos);
     }
@@ -37,9 +37,20 @@ class JuegoController {
         }else{
             $this->juegoview->mostrarJuegoporid($juego,null);
         }
-       
-    
-      
+   
+    }
+
+
+    function obtenerJuegosporFiltro(){
+        if(isset($_POST['filtro']) && $_POST['filtro'] != ""){
+            $filtro = $_POST['filtro'];
+
+        }else{
+            $filtro = null;
+        }
+        $juegos = $this->juegomodel->getJuegosbyFilter($filtro);
+        $generos = $this->genero->getallGenero();
+        $this->juegoview->mostrarJuegos($juegos,null,$generos);
     }
 
     function agregarJuego(){

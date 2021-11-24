@@ -20,6 +20,9 @@ $adminController = new AdminController();
 $params = explode("/", $action);
 
 switch($params[0]){
+    case 'busquedaFiltro':
+        $juegoController->obtenerJuegosporFiltro();
+        break;
     case 'borrarUsuario':
         $adminController->borrarUsuario($params[1]);
         break;

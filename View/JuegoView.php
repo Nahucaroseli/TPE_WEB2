@@ -12,7 +12,7 @@ class JuegoView{
         $this->smarty = new Smarty();
     }
 
-    function mostrarJuegos($juegos,$verificar,$generos){
+    function mostrarJuegos($juegos,$verificar = null,$generos){
         $this->smarty->assign('juegos',$juegos);
         $this->smarty->assign('verificar',$verificar);
         $this->smarty->assign('generos',$generos);

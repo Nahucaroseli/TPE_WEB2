@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-22 01:20:57
+/* Smarty version 3.1.39, created on 2021-11-24 01:19:18
   from 'C:\xampp\htdocs\TPE WEB 2\templates\mostrarGenero.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_619ae269e730f4_29656778',
+  'unifunc' => 'content_619d8506ceaf25_36169658',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8437df380ffef507c4890014585d00bc84ca7ec7' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPE WEB 2\\templates\\mostrarGenero.tpl',
-      1 => 1635979092,
+      1 => 1637713085,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_619ae269e730f4_29656778 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619d8506ceaf25_36169658 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 <link rel="stylesheet" href="assets/style.css">

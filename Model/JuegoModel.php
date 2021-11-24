@@ -23,6 +23,13 @@ class JuegoModel {
         return $juego;
     }
 
+    function getJuegosbyFilter($filtro = null){
+        $query = $this->db->prepare("SELECT * FROM juego LEFT JOIN genero ON juego.id_genero = genero.id_genero WHERE nombre LIKE '%$filtro%' OR calificacion LIKE '%$filtro%' OR precio LIKE '%$filtro%'");
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_OBJ);
+
+    }
+
     
     function addJuego($id_genero,$nombre,$descripcion,$calificacion,$destino,$precio){
         $query = $this->db->prepare("INSERT INTO juego(id_genero,nombre,descripcion,calificacion,img,precio) VALUES(?,?,?,?,?,?)");
