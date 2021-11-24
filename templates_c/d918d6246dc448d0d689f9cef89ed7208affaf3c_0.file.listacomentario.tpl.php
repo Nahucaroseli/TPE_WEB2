@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-23 23:23:58
+/* Smarty version 3.1.39, created on 2021-11-24 17:31:56
   from 'C:\xampp\htdocs\TPE WEB 2\templates\Vue\listacomentario.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_619d69fe034091_96357122',
+  'unifunc' => 'content_619e68fc646465_50570471',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd918d6246dc448d0d689f9cef89ed7208affaf3c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPE WEB 2\\templates\\Vue\\listacomentario.tpl',
-      1 => 1637706236,
+      1 => 1637771515,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_619d69fe034091_96357122 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619e68fc646465_50570471 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div>
     <h1>Comentarios</h1>
 </div>
@@ -31,6 +31,7 @@ function content_619d69fe034091_96357122 (Smarty_Internal_Template $_smarty_tpl)
 
 
 <section id="app">
+    
     <div>
         <form id="orderForm">
             <select name="atributo" required class="box">

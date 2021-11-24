@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-24 01:28:26
+/* Smarty version 3.1.39, created on 2021-11-24 17:37:16
   from 'C:\xampp\htdocs\TPE WEB 2\templates\listajuego.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_619d872a411636_08312877',
+  'unifunc' => 'content_619e6a3c5eb849_83963922',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f759177e932376f36e27aa9f9f17de0eda76238c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPE WEB 2\\templates\\listajuego.tpl',
-      1 => 1637713644,
+      1 => 1637771807,
       2 => 'file',
     ),
   ),
@@ -25,7 +25,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_619d872a411636_08312877 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619e6a3c5eb849_83963922 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 if ($_smarty_tpl->tpl_vars['verificar']->value == true) {?>
     <?php $_smarty_tpl->_subTemplateRender("file:templates/logoutButton.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
@@ -101,9 +101,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 </section>
 <?php }?>
 
-<?php if ((isset($_SESSION['logged'])) && $_SESSION['logged']) {
-$_smarty_tpl->_subTemplateRender("file:templates/FormFiltro.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
-}?>
+<?php $_smarty_tpl->_subTemplateRender("file:templates/FormFiltro.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 
 <?php $_smarty_tpl->_subTemplateRender("file:templates/footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 }

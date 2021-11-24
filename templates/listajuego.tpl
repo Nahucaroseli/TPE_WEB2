@@ -51,8 +51,6 @@
 </section>
 {/if}
 
-{if isset($smarty.session.logged) && $smarty.session.logged}
 {include "templates/FormFiltro.tpl"}
-{/if}
 
 {include "templates/footer.tpl"}

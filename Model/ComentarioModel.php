@@ -13,15 +13,6 @@ class ComentarioModel{
         $sentencia->execute(array($id));
         $comentarios=$sentencia->fetchAll(PDO::FETCH_OBJ);
         return $comentarios;
-
-    }
-    function getComentariosbyPuntos($id,$puntaje){
-        
-        $sentencia=$this->db->prepare("SELECT comentario.texto , comentario.puntaje , comentario.id , comentario.fecha FROM comentario JOIN juego ON comentario.id_juego = juego.id_juego WHERE comentario.id_juego=?");
-        $sentencia->execute(array($id));
-        $comentarios=$sentencia->fetchAll(PDO::FETCH_OBJ);
-        return $comentarios;
-
     }
 
     function getComentario($id){
