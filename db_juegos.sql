@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2021 a las 04:29:28
+-- Tiempo de generación: 24-11-2021 a las 17:46:49
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.11
 
@@ -24,6 +24,20 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `comentario`
+--
+
+CREATE TABLE `comentario` (
+  `texto` varchar(200) NOT NULL,
+  `fecha` date DEFAULT NULL,
+  `puntaje` int(1) NOT NULL,
+  `id` int(11) NOT NULL,
+  `id_juego` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `genero`
 --
 
@@ -39,9 +53,7 @@ CREATE TABLE `genero` (
 --
 
 INSERT INTO `genero` (`id_genero`, `nombreGenero`, `descripcion`, `tag`) VALUES
-(8, 'Shooter', 'Genero shooter', 'Shooter Genre'),
-(10, 'Mundo Abierto', 'Un videojuego de mundo abierto es aquel que ofrece al jugador la posibilidad de moverse libremente por un mundo virtual y alterar cualquier elemento a su voluntad', 'Mundo Abierto genre'),
-(11, 'Aventura', '', 'Aventura genre');
+(13, 'Shooter', 'shooter', 'shooter genre');
 
 -- --------------------------------------------------------
 
@@ -55,6 +67,7 @@ CREATE TABLE `juego` (
   `nombre` varchar(45) NOT NULL,
   `descripcion` text NOT NULL,
   `calificacion` int(11) NOT NULL,
+  `img` varchar(100) DEFAULT NULL,
   `precio` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -62,10 +75,8 @@ CREATE TABLE `juego` (
 -- Volcado de datos para la tabla `juego`
 --
 
-INSERT INTO `juego` (`id_juego`, `id_genero`, `nombre`, `descripcion`, `calificacion`, `precio`) VALUES
-(52, 8, 'Call of Duty 2', 'shooter 1', 32132, 524),
-(54, 10, 'GTA', 'La saga cronológicamente empieza con Grand Theft Auto: London 1961, aunque no aparecen ninguno de los personajes que aparecen en los demás juegos. Ocurre lo mismo con el siguiente,Grand Theft Auto: London 1969.', 8, 67),
-(55, 11, 'Tomb Raider', 'Tomb Raider, es un juego de aventura singleplayer', 6, 67);
+INSERT INTO `juego` (`id_juego`, `id_genero`, `nombre`, `descripcion`, `calificacion`, `img`, `precio`) VALUES
+(63, 13, 'Call of Duty', 'Juego de disparos en primera persona', 10, NULL, 78);
 
 -- --------------------------------------------------------
 
@@ -76,20 +87,27 @@ INSERT INTO `juego` (`id_juego`, `id_genero`, `nombre`, `descripcion`, `califica
 CREATE TABLE `usuario` (
   `email` varchar(45) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `id_usuario` int(11) NOT NULL
+  `id_usuario` int(11) NOT NULL,
+  `isAdmin` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`email`, `password`, `id_usuario`) VALUES
-('nahucaroseli2100@gmail.com', '$2y$10$4g.1QEg5YWkLZIo7Xhno8O10DPgG85cSGecS2Di7ig50gA6k71eLq', 4),
-('fidelo@gmail.com', '$2y$10$fIu9/a93wgpyeKkl9iiV.uNBtSerAfVcmMDh0VCmw8ikkFMXbnGau', 5);
+INSERT INTO `usuario` (`email`, `password`, `id_usuario`, `isAdmin`) VALUES
+('nahucaroseli2100@gmail.com', '$2y$10$4g.1QEg5YWkLZIo7Xhno8O10DPgG85cSGecS2Di7ig50gA6k71eLq', 4, 1);
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_tabla` (`id_juego`);
 
 --
 -- Indices de la tabla `genero`
@@ -115,26 +133,38 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+
+--
 -- AUTO_INCREMENT de la tabla `genero`
 --
 ALTER TABLE `genero`
-  MODIFY `id_genero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_genero` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `juego`
 --
 ALTER TABLE `juego`
-  MODIFY `id_juego` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id_juego` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD CONSTRAINT `id_tabla` FOREIGN KEY (`id_juego`) REFERENCES `juego` (`id_juego`);
 
 --
 -- Filtros para la tabla `juego`
