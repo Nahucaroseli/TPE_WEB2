@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.39, created on 2021-11-23 02:16:14
+/* Smarty version 3.1.39, created on 2021-11-25 00:37:29
   from 'C:\xampp\htdocs\TPE WEB 2\templates\FormEditJuego.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.39',
-  'unifunc' => 'content_619c40de0ac385_20004106',
+  'unifunc' => 'content_619eccb9cef502_19538756',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2c01605275b08e0f1433fdd805d79711fc3d61cc' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPE WEB 2\\templates\\FormEditJuego.tpl',
-      1 => 1635979075,
+      1 => 1637797048,
       2 => 'file',
     ),
   ),
@@ -23,13 +23,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:templates/footer.tpl' => 1,
   ),
 ),false)) {
-function content_619c40de0ac385_20004106 (Smarty_Internal_Template $_smarty_tpl) {
+function content_619eccb9cef502_19538756 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:templates/header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 $_smarty_tpl->_subTemplateRender("file:templates/nav.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
 <section class="form">
-<form action="updateGame" method="POST" class="box">
+<form action="updateGame" method="POST" class="box" enctype="multipart/form-data">
     <h1>Modificar Juego</h1>
     <select name="genero" id="genero">
         <?php
@@ -70,9 +70,19 @@ $_smarty_tpl->tpl_vars['item']->do_else = false;
         <input type="text" name="precio" id="precio" value="<?php echo $_smarty_tpl->tpl_vars['item']->value->precio;?>
 " placeholder="Precio">
     </div>
+    <div>
+        <img src="<?php echo $_smarty_tpl->tpl_vars['item']->value->img;?>
+" alt="imagen">
+    </div>
+    <?php if ((isset($_SESSION['isAdmin'])) && $_SESSION['isAdmin']) {?>
+        <div>
+            <input type="file" name="img" id="img" placeholder="IMG"> 
+        </div>
+        <?php }?>
     <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+    
     <button type="submit">Modificar</button>
 </form>
 </section>

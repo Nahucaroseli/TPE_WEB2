@@ -2,7 +2,7 @@
 {include "templates/nav.tpl"}
 
 <section class="form">
-<form action="updateGame" method="POST" class="box">
+<form action="updateGame" method="POST" class="box" enctype="multipart/form-data">
     <h1>Modificar Juego</h1>
     <select name="genero" id="genero">
         {foreach from=$generos item=$genero}
@@ -24,7 +24,16 @@
     <div>
         <input type="text" name="precio" id="precio" value="{$item->precio}" placeholder="Precio">
     </div>
+    <div>
+        <img src="{$item->img}" alt="imagen">
+    </div>
+    {if isset($smarty.session.isAdmin) && $smarty.session.isAdmin}
+        <div>
+            <input type="file" name="img" id="img" placeholder="IMG"> 
+        </div>
+        {/if}
     {/foreach}
+    
     <button type="submit">Modificar</button>
 </form>
 </section>

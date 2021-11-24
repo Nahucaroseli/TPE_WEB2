@@ -41,9 +41,9 @@ class JuegoModel {
         $query->execute(array($id));
     }
     
-    function updateJuego($id_juego,$id_genero,$nombre,$descripcion,$calificacion,$precio){
-        $query = $this->db->prepare("UPDATE juego SET id_genero=? , nombre=? , descripcion=? , calificacion=? , precio=? WHERE id_juego=?");
-        $query->execute(array($id_genero,$nombre,$descripcion,$calificacion,$precio,$id_juego));
+    function updateJuego($id_juego,$id_genero,$img,$nombre,$descripcion,$calificacion,$precio){
+        $query = $this->db->prepare("UPDATE juego SET id_genero=? , nombre=? , descripcion=? , calificacion=? , img=? , precio=? WHERE id_juego=?");
+        $query->execute(array($id_genero,$nombre,$descripcion,$calificacion,$img,$precio,$id_juego));
     }
 }
 

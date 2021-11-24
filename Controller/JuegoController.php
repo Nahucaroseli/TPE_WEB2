@@ -81,9 +81,17 @@ class JuegoController {
 
     }
     function modificar(){
-            $this->juegomodel->updateJuego($_POST['id_juego'],$_POST['genero'],$_POST['nombre'],$_POST['descripcion'],$_POST['calificacion'],$_POST['precio']);
+        if(($_FILES["img"]["type"]=="image/png") || ($_FILES["img"]["type"]=="image/jpg")){
+            $img=$_FILES["img"];
+            $origen=$img["tmp_name"];
+            $destino="public/".uniqid().$img["name"];
+            copy($origen,$destino);
+            $this->juegomodel->updateJuego($_POST['id_juego'],$_POST['genero'],$destino,$_POST['nombre'],$_POST['descripcion'],$_POST['calificacion'],$_POST['precio']);
             $this->juegoview->showJuegoLocation();
+        }else{
+            $this->juegomodel->updateJuego($_POST['id_juego'],$_POST['genero'],null,$_POST['nombre'],$_POST['descripcion'],$_POST['calificacion'],$_POST['precio']);
+            $this->juegoview->showJuegoLocation();
+        }
+            
     }
-
-  
 }
